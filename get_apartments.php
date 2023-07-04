@@ -17,9 +17,26 @@ if (isset($_GET['building_id'])) {
     $building_id = $_GET['building_id'];
     $result = $conn->query("SELECT * FROM Apartments WHERE Building_ID = $building_id");
 
-    $outp = array();
-    $outp = $result->fetch_all(MYSQLI_ASSOC);
+    if ($result->num_rows > 0) {
+        $departments = array();
 
-    echo json_encode($outp);
+        while ($row = $result->fetch_assoc()) {
+            $department = array(
+                "ID" => $row["ID"],
+                "Name" => $row["Name"],
+                "Cost" => $row["Cost"]
+            );
+
+            $departments[] = $department;
+        }
+
+        echo json_encode($departments);
+    } else {
+        echo json_encode(array());
+    }
+} else {
+    echo json_encode(array());
 }
+
+$conn->close();
 ?>

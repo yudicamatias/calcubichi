@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>Construfac ADMIN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Enlaces a los archivos CSS -->
+    <link rel="stylesheet" href="admin.css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://i.postimg.cc/BbcFMDCw/Constru-LOGO-2-4x.png" alt="Construfac SRL" class="logo">
+        </header>
+
+        <!-- Formulario para agregar un nuevo edificio -->
+        <h2>Agregar Edificio</h2>
+        <form id="addBuildingForm">
+            <input type="text" id="buildingName" placeholder="Nombre del edificio" required>
+            <button type="submit">Agregar</button>
+        </form>
+
+        <!-- Lista de edificios existentes -->
+        <h2>Edificios</h2>
+        <ul id="buildingList"></ul>
+
+        <!-- Formulario para agregar un nuevo departamento -->
+        <h2>Agregar Departamento</h2>
+        <form id="addApartmentForm">
+            <select id="buildingSelect" required>
+                <option value="">Selecciona un edificio</option>
+            </select>
+            <input type="text" id="apartmentName" placeholder="Nombre del departamento" required>
+            <input type="number" id="apartmentCost" placeholder="Costo del departamento" required>
+            <button id="addApartmentButton" type="submit">Agregar</button>
+        </form>
+
+        <!-- Lista de departamentos existentes -->
+        <h2>Departamentos</h2>
+        <ul id="apartmentList"></ul>
+    </div>
+    
+    <footer>
+    <p>@Construfac2023</p>
+</footer>
+
+
+
+    <!-- Enlaces a los archivos JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="admin.js?v=1.0"></script>
+</body>
+</html>

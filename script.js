@@ -10,6 +10,8 @@ const calculateButton = document.getElementById('calculateButton');
 const resultDiv = document.getElementById('result');
 const loadingDiv = document.getElementById('loading');
 const errorDiv = document.getElementById('error');
+const loginError = document.getElementById('loginError');
+
 
 let apartmentsData = [];
 

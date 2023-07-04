@@ -15,8 +15,22 @@ if ($conn->connect_error) {
 
 $result = $conn->query("SELECT * FROM Buildings");
 
-$outp = array();
-$outp = $result->fetch_all(MYSQLI_ASSOC);
+if ($result->num_rows > 0) {
+    $buildings = array();
 
-echo json_encode($outp);
+    while ($row = $result->fetch_assoc()) {
+        $building = array(
+            "ID" => $row["ID"],
+            "Name" => $row["Name"]
+        );
+
+        $buildings[] = $building;
+    }
+
+    echo json_encode($buildings);
+} else {
+    echo json_encode(array());
+}
+
+$conn->close();
 ?>
